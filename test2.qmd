@@ -1,0 +1,28 @@
+---
+title: "Untitled"
+format: 
+  html:
+    df-print: paged
+    embed-resources: true
+---
+
+
+Let's try the same thing we did in the script:
+
+
+```{r}
+library(tidyverse)
+n <- 100
+x <- rnorm(n)
+d <- tibble(x)
+d
+```
+
+and now make a normal quantile plot:
+
+
+```{r}
+ggplot(d, aes(sample = x)) + stat_qq() + stat_qq_line()
+```
+
+This is about as far from the line as you would expect to get with a sample of size `r n` from an actual normal distribution.
